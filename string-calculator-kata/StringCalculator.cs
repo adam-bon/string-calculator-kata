@@ -18,8 +18,8 @@ namespace string_calculator_kata {
                int sum = 0;
                foreach (string stringNum in stringNumbers)
                {
-                   sum += Int32.Parse(stringNum);
-                 
+                   sum += Int32.Parse(stringNum);  
+
                }
 
                return sum;
