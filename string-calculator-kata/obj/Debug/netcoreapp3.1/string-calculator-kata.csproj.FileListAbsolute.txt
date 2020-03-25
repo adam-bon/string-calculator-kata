@@ -1,0 +1,10 @@
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.deps.json
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.runtimeconfig.json
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.runtimeconfig.dev.json
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.dll
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.pdb
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.csprojAssemblyReference.cache
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.AssemblyInfoInputs.cache
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.AssemblyInfo.cs
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.dll
+/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.pdb
