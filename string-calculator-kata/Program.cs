@@ -6,7 +6,9 @@ namespace string_calculator_kata
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            StringCalculator stringCalculator = new StringCalculator();
+            stringCalculator.Calculate("//;\n1;2");
+              
         }
     }
 }
