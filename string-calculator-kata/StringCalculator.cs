@@ -15,21 +15,19 @@ namespace string_calculator_kata {
             else if (input.Contains(','))
             {
                stringNumbers = input.Split(',');
-               int sum = 0;
-               foreach (string stringNum in stringNumbers)
-               {
-                   sum += Int32.Parse(stringNum);  
+               //int sum = 0;
+               //foreach (string stringNum in stringNumbers)
+               //{
+               //    sum += Int32.Parse(stringNum); 
+               //}
 
-               }
+               
 
-               return sum;
+               return Int32.Parse(stringNumbers[0]) + Int32.Parse(stringNumbers[1]);
             }
             else
                 return Int32.Parse(input);
-            
-            
-            
-            
+           
         }
         
     }

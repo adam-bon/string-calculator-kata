@@ -14,32 +14,31 @@ namespace string_calculator_kata
         }
 
         //discuss
-        [Fact]
-        public void StringCalculator_inputSingleNumberString_returnsNumberAsInt() {
+        [Theory]
+        [InlineData("1", 1)]
+        [InlineData("3", 3)]
+        [InlineData("4", 4)]
+        [InlineData("5", 5)]
+
+
+        public void StringCalculator_inputSingleNumberString_returnsNumberAsInt(String input, int expected) {
 
             StringCalculator stringCalculator = new StringCalculator();
 
-            int expected = 1;
-            int actual = stringCalculator.Calculate("1");
-            Assert.Equal(expected, actual);
-
-            expected = 3;
-            actual = stringCalculator.Calculate("3");
+            int actual = stringCalculator.Calculate(input);
             Assert.Equal(expected, actual);
             
         }
 
-        [Fact]
-        public void StringCalculator_inputTwoNumberString_returnsSum() {
+        [Theory]
+        [InlineData("1,2", 3)]
+        [InlineData("3,5", 8)]
+
+        public void StringCalculator_inputTwoNumberString_returnsSum(String input, int expected) {
 
             StringCalculator stringCalculator = new StringCalculator();
 
-            int expected = 3;
-            int actual = stringCalculator.Calculate("1,2");
-            Assert.Equal(expected, actual);
-
-            expected = 8;
-            actual = stringCalculator.Calculate("3,5");
+            int actual = stringCalculator.Calculate(input);
             Assert.Equal(expected, actual);
 
         }
