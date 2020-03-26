@@ -12,16 +12,16 @@ namespace string_calculator_kata {
             if (input == "")
                 return 0;
             //split the input 
-            else if (input.Contains(','))
+            else if (input.Contains(',') || input.Contains('\n'))
             {
-               stringNumbers = input.Split(',');
+
+               stringNumbers = input.Split(',', '\n');
+
                int sum = 0;
                foreach (string stringNum in stringNumbers)
                {
                    sum += Int32.Parse(stringNum); 
                }
-
-               
 
                return sum;
             }

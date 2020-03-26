@@ -3,7 +3,7 @@ using Xunit;
 
 namespace string_calculator_kata
 {
-    public class UnitTest1
+    public class StringCalculatorTests
     {
         [Fact]
         public void StringCalculator_inputEmptyString_returnsZero() {

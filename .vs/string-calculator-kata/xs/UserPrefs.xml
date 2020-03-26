@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{BC8C565D-983C-4791-977B-200A99E4E95B}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="string-calculator-kata-test/StringCalculatorTests.cs">
     <Files>
-      <File FileName="string-calculator-kata-test/StringCalculatorTests.cs" Line="9" Column="1" />
+      <File FileName="string-calculator-kata-test/StringCalculatorTests.cs" Line="3" Column="1" />
       <File FileName="string-calculator-kata/StringCalculator.cs" />
       <File FileName="string-calculator-kata/Program.cs" />
     </Files>
@@ -9,9 +9,20 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="string-calculator-kata" expanded="True">
-            <Node name="string-calculator-kata" expanded="True" selected="True" />
-            <Node name="string-calculator-kata-test" expanded="True" />
+            <Node name="string-calculator-kata" expanded="True" />
+            <Node name="string-calculator-kata-test" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="StringCalculatorTests.cs" selected="True" />
+            </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="string-calculator-kata" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
