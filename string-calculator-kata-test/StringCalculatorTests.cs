@@ -66,7 +66,16 @@ namespace string_calculator_kata
             int actual = stringCalculator.Calculate(input);
             Assert.Equal(expected, actual);
         }
-        
+
+        [Theory]
+        [InlineData("//;\n1;2", 3)]
+        public void StringCalculator_inputAnyNumbersAsStringWithCustomDelimiter_returnsSum(string input, int expected) {
+            StringCalculator stringCalculator = new StringCalculator();
+
+            int actual = stringCalculator.Calculate(input);
+            Assert.Equal(expected, actual);
+        }
+
 
     }
 }
