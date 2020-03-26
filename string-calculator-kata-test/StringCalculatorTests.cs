@@ -14,35 +14,59 @@ namespace string_calculator_kata
         }
 
         //discuss
-        [Fact]
-        public void StringCalculator_inputSingleNumberString_returnsNumberAsInt() {
+        [Theory]
+        [InlineData("1", 1)]
+        [InlineData("3", 3)]
+        [InlineData("4", 4)]
+        [InlineData("5", 5)]
+
+
+        public void StringCalculator_inputSingleNumberString_returnsNumberAsInt(string input, int expected) {
 
             StringCalculator stringCalculator = new StringCalculator();
 
-            int expected = 1;
-            int actual = stringCalculator.Calculate("1");
-            Assert.Equal(expected, actual);
-
-            expected = 3;
-            actual = stringCalculator.Calculate("3");
+            int actual = stringCalculator.Calculate(input);
             Assert.Equal(expected, actual);
             
         }
 
-        [Fact]
-        public void StringCalculator_inputTwoNumberString_returnsSum() {
+        [Theory]
+        [InlineData("1,2", 3)]
+        [InlineData("3,5", 8)]
+
+        public void StringCalculator_inputTwoNumberString_returnsSum(string input, int expected) {
 
             StringCalculator stringCalculator = new StringCalculator();
 
-            int expected = 3;
-            int actual = stringCalculator.Calculate("1,2");
-            Assert.Equal(expected, actual);
-
-            expected = 8;
-            actual = stringCalculator.Calculate("3,5");
+            int actual = stringCalculator.Calculate(input);
             Assert.Equal(expected, actual);
 
         }
+
+        [Theory]
+        [InlineData("1,2,3", 6)]
+        [InlineData("3,5,3,9", 20)]
+
+        public void StringCalculator_inputAnyNumbersString_returnsSum(string input, int expected)
+        {
+            StringCalculator stringCalculator = new StringCalculator();
+
+            int actual = stringCalculator.Calculate(input);
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [InlineData("1,2\n3", 6)]
+        [InlineData("3\n5\n3,9", 20)]
+
+        public void StringCalculator_inputAnyNumbersStringWithLineBreaksOrCommas_returnsSum(string input, int expected)
+        {
+            StringCalculator stringCalculator = new StringCalculator();
+
+            int actual = stringCalculator.Calculate(input);
+            Assert.Equal(expected, actual);
+        }
+        
 
     }
 }
