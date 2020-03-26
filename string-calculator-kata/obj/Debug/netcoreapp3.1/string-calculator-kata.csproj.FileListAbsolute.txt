@@ -8,3 +8,13 @@
 /Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.AssemblyInfo.cs
 /Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.dll
 /Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.pdb
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.deps.json
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.runtimeconfig.json
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.runtimeconfig.dev.json
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.dll
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/bin/Debug/netcoreapp3.1/string-calculator-kata.pdb
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.csprojAssemblyReference.cache
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.AssemblyInfoInputs.cache
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.AssemblyInfo.cs
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.dll
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.pdb
