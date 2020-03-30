@@ -9,7 +9,7 @@ namespace string_calculator_kata
         public void StringCalculator_inputEmptyString_returnsZero() {
 
             const int expected = 0;
-            int actual = new StringCalculator().Calculate("");
+            int actual = new StringCalculator().Add("");
             Assert.Equal(expected, actual);
         }
 
@@ -25,7 +25,7 @@ namespace string_calculator_kata
 
             StringCalculator stringCalculator = new StringCalculator();
 
-            int actual = stringCalculator.Calculate(input);
+            int actual = stringCalculator.Add(input);
             Assert.Equal(expected, actual);
             
         }
@@ -38,7 +38,7 @@ namespace string_calculator_kata
 
             StringCalculator stringCalculator = new StringCalculator();
 
-            int actual = stringCalculator.Calculate(input);
+            int actual = stringCalculator.Add(input);
             Assert.Equal(expected, actual);
 
         }
@@ -51,7 +51,7 @@ namespace string_calculator_kata
         {
             StringCalculator stringCalculator = new StringCalculator();
 
-            int actual = stringCalculator.Calculate(input);
+            int actual = stringCalculator.Add(input);
             Assert.Equal(expected, actual);
         }
 
@@ -63,7 +63,7 @@ namespace string_calculator_kata
         {
             StringCalculator stringCalculator = new StringCalculator();
 
-            int actual = stringCalculator.Calculate(input);
+            int actual = stringCalculator.Add(input);
             Assert.Equal(expected, actual);
         }
 
@@ -72,7 +72,7 @@ namespace string_calculator_kata
         public void StringCalculator_inputAnyNumbersAsStringWithCustomDelimiter_returnsSum(string input, int expected) {
             StringCalculator stringCalculator = new StringCalculator();
 
-            int actual = stringCalculator.Calculate(input);
+            int actual = stringCalculator.Add(input);
             Assert.Equal(expected, actual);
         }
 

@@ -7,7 +7,7 @@ namespace string_calculator_kata
         static void Main(string[] args)
         {
             StringCalculator stringCalculator = new StringCalculator();
-            stringCalculator.Calculate("//;\n1;2");
+            stringCalculator.Add("//;\n1;2");
               
         }
     }
