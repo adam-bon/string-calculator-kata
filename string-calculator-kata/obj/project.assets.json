@@ -20,7 +20,7 @@
       "outputPath": "/Users/adam.bonarrigo/Projects/string-calculator-kata/string-calculator-kata/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/adam.bonarrigo/.config/NuGet/NuGet.Config"
+        "/Users/adam.bonarrigo/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
