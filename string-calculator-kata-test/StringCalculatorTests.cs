@@ -75,6 +75,18 @@ namespace string_calculator_kata
             int actual = stringCalculator.Add(input);
             Assert.Equal(expected, actual);
         }
+        
+        [Fact]
+        // [InlineData("-1,2,-3", 2)]
+        public void StringCalculator_inputNegativeNumbersThrowException() {
+            StringCalculator stringCalculator = new StringCalculator();
+
+            //int actual = stringCalculator.Add();
+            Assert.Throws<NegativeNumbersNotAllowedException>(() => stringCalculator.Add("-1,2,-3"));
+               
+           
+        }
+        
 
 
     }
