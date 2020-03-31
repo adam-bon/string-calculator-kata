@@ -83,11 +83,6 @@ namespace string_calculator_kata
 
             //int actual = stringCalculator.Add();
             Assert.Throws<NegativeNumbersNotAllowedException>(() => stringCalculator.Add("-1,2,-3"));
-               
-           
         }
-        
-
-
     }
 }

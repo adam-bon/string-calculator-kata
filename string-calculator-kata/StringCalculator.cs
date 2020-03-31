@@ -16,6 +16,10 @@ namespace string_calculator_kata {
                 case var someInput when new Regex(@"^$").IsMatch(someInput):
                     return 0;
 
+                case var someInput when new Regex(@"-[0-9]").IsMatch(someInput):
+                throw new NegativeNumbersNotAllowedException("Negatives not allowed: -1, 3");
+                //eturn 0;
+
                 case var someInput when new Regex(@"^//").IsMatch(someInput):
                     stringNumbers = SplitStringWithCustomDelimiter(input);
                     return SumOfStringNumbers(stringNumbers);
