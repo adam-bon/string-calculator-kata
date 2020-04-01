@@ -8,7 +8,8 @@ namespace string_calculator_kata {
 
         public int Add(String input)
         {
-
+            
+            
             string[] stringNumbers;
 
             switch (input)
@@ -17,8 +18,8 @@ namespace string_calculator_kata {
                     return 0;
 
                 case var someInput when new Regex(@"-[0-9]").IsMatch(someInput):
-                throw new NegativeNumbersNotAllowedException("Negatives not allowed: -1, 3");
-                //eturn 0;
+                throw new NegativeNumbersNotAllowedException("Negatives not allowed: -1, -3");
+                //return 0;
 
                 case var someInput when new Regex(@"^//").IsMatch(someInput):
                     stringNumbers = SplitStringWithCustomDelimiter(input);

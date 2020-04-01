@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using Xunit;
 
 namespace string_calculator_kata
@@ -76,13 +77,16 @@ namespace string_calculator_kata
             Assert.Equal(expected, actual);
         }
         
-        [Fact]
-        // [InlineData("-1,2,-3", 2)]
-        public void StringCalculator_inputNegativeNumbersThrowException() {
+        [Theory]
+        [InlineData("-1,2,-3")]
+        public void StringCalculator_inputNegativeNumbersThrowException(string input) {
             StringCalculator stringCalculator = new StringCalculator();
 
+            Exception ex = Assert.Throws<NegativeNumbersNotAllowedException>(() => stringCalculator.Add(input));
+            
+            
             //int actual = stringCalculator.Add();
-            Assert.Throws<NegativeNumbersNotAllowedException>(() => stringCalculator.Add("-1,2,-3"));
+            Assert.Equal($"Negatives not allowed: {Regex.Split(input, @"^-\d+$")}", ex.Message);
         }
     }
 }
