@@ -18,7 +18,7 @@ namespace string_calculator_kata {
                     return 0;
 
                 case var someInput when new Regex(@"-[0-9]").IsMatch(someInput):
-                throw new NegativeNumbersNotAllowedException("Negatives not allowed: -1, -3");
+                throw new NegativeNumbersNotAllowedException("Negatives not allowed");
                 //return 0;
 
                 case var someInput when new Regex(@"^//").IsMatch(someInput):

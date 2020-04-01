@@ -84,9 +84,12 @@ namespace string_calculator_kata
 
             Exception ex = Assert.Throws<NegativeNumbersNotAllowedException>(() => stringCalculator.Add(input));
             
-            
+            string pattern = @"-[0-9]+";
+            string [] negativeNumbers = Regex.Split(input, pattern);
             //int actual = stringCalculator.Add();
-            Assert.Equal($"Negatives not allowed: {Regex.Split(input, @"^-\d+$")}", ex.Message);
+
+            //Assert.Equal($"Negatives not allowed: {string.Join(" ", Regex.Split(input, @"^-\d+$"))}", ex.Message);
+            Assert.Equal($"Negatives not allowed: {negativeNumbers[0]}", ex.Message);
         }
     }
 }
