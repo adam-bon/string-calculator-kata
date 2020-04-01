@@ -18,3 +18,5 @@
 /Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.AssemblyInfo.cs
 /Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.dll
 /Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.pdb
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.csproj.CoreCompileInputs.cache
+/Users/michelle.wong/FMA/string-calculator-kata/string-calculator-kata/obj/Debug/netcoreapp3.1/string-calculator-kata.genruntimeconfig.cache
