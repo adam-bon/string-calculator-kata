@@ -94,5 +94,19 @@ namespace string_calculator_kata
             //When
             Assert.Equal($"Negatives not allowed: {output}", ex.Message);
         }
+        
+        [Theory]
+        [InlineData("1000,1001,2", 2)]
+        [InlineData("1000,1001,2,3", 5)]
+        public void StringCalculator_inputNumbersGreaterThanOrEqualTo1000_ignored(string input, int expected) {
+            //Given
+            StringCalculator stringCalculator = new StringCalculator();
+
+            //When
+            int actual = stringCalculator.Add(input);
+            
+            //Then
+            Assert.Equal(expected, actual);
+        }
     }
 }
