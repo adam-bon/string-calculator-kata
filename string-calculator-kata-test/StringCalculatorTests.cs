@@ -71,25 +71,28 @@ namespace string_calculator_kata
         [Theory]
         [InlineData("//;\n1;2", 3)]
         public void StringCalculator_inputAnyNumbersAsStringWithCustomDelimiter_returnsSum(string input, int expected) {
+            //Given
             StringCalculator stringCalculator = new StringCalculator();
 
+            //When
             int actual = stringCalculator.Add(input);
+            
+            //Then
             Assert.Equal(expected, actual);
         }
         
         [Theory]
-        [InlineData("-1,2,-3")]
-        public void StringCalculator_inputNegativeNumbersThrowException(string input) {
+        [InlineData("-1,2,-3", "-1, -3")]
+        [InlineData("-13,2,-35", "-13, -35")]
+        [InlineData("-130\n-2354,3543", "-130, -2354")]
+        [InlineData("//;-13;2\n-35", "-13, -35")] 
+        public void StringCalculator_inputNegativeNumbersThrowException(string input, string output) {
+             //Given
             StringCalculator stringCalculator = new StringCalculator();
-
             Exception ex = Assert.Throws<NegativeNumbersNotAllowedException>(() => stringCalculator.Add(input));
             
-            string pattern = @"-[0-9]+";
-            string [] negativeNumbers = Regex.Split(input, pattern);
-            //int actual = stringCalculator.Add();
-
-            //Assert.Equal($"Negatives not allowed: {string.Join(" ", Regex.Split(input, @"^-\d+$"))}", ex.Message);
-            Assert.Equal($"Negatives not allowed: {negativeNumbers[0]}", ex.Message);
+            //When
+            Assert.Equal($"Negatives not allowed: {output}", ex.Message);
         }
     }
 }

@@ -17,9 +17,10 @@ namespace string_calculator_kata {
                 case var someInput when new Regex(@"^$").IsMatch(someInput):
                     return 0;
 
-                case var someInput when new Regex(@"-[0-9]").IsMatch(someInput):
-                throw new NegativeNumbersNotAllowedException("Negatives not allowed");
-                //return 0;
+                case var someInput when new Regex(@"-\d+").IsMatch(someInput):
+                    MatchCollection negativeNumbers = Regex.Matches(input, @"-\d+");
+                    throw new NegativeNumbersNotAllowedException($"Negatives not allowed: {String.Join(", ", negativeNumbers)}");
+                    //return 0;
 
                 case var someInput when new Regex(@"^//").IsMatch(someInput):
                     stringNumbers = SplitStringWithCustomDelimiter(input);
