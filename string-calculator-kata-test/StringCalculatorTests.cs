@@ -108,5 +108,18 @@ namespace string_calculator_kata
             //Then
             Assert.Equal(expected, actual);
         }
+
+        [Theory]
+        [InlineData("//[***]\n1***2***3", 6)]
+        public void StringCalculator_inputAnyNumbersAsStringWithCustomDelimiterOfAnyLength_returnsSum(string input, int expected) {
+            //Given
+            StringCalculator stringCalculator = new StringCalculator();
+
+            //When
+            int actual = stringCalculator.Add(input);
+            
+            //Then
+            Assert.Equal(expected, actual);
+        }
     }
 }

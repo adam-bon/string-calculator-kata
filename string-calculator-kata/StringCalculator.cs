@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+using System;
 using System.Text.RegularExpressions;
 
 namespace string_calculator_kata {
@@ -20,8 +21,6 @@ namespace string_calculator_kata {
                 case var someInput when new Regex(@"-\d+").IsMatch(someInput):
                     MatchCollection negativeNumbers = Regex.Matches(input, @"-\d+");
                     throw new NegativeNumbersNotAllowedException($"Negatives not allowed: {String.Join(", ", negativeNumbers)}");
-                 
-                //case var someInput
 
                 case var someInput when new Regex(@"^//").IsMatch(someInput):
                     stringNumbers = SplitStringWithCustomDelimiter(input);
@@ -56,9 +55,19 @@ namespace string_calculator_kata {
         }
 
         private string[] SplitStringWithCustomDelimiter(string input){
-                char delimiter = input[2];
-                return input.Split(delimiter, ',', '\n');
-        }
-        
+                //char delimiter = input[2];
+                //[***]
+                if(Regex.IsMatch(input,  @"(?<=\[)(.*?)(?=\])"))
+                {
+                    Match delimiter = Regex.Match(input,  @"(?<=\[)(.*?)(?=\])"); 
+                    string[] splitString = input.Split(',', '\n');
+                    string[] splitString2 = splitString[1].Split(delimiter.ToString(), StringSplitOptions.None);
+                    return splitString2;
+                } else
+                {
+                    char delimiter = input[2];
+                    return input.Split(delimiter, ',', '\n');
+                }
+        }     
     }
 }
