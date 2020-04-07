@@ -135,5 +135,46 @@ namespace string_calculator_kata
             //Then
             Assert.Equal(expected, actual);
         }
+        
+        [Theory]
+        [InlineData("//[***][#][%]\n1***2#3%4", 10)]
+        public void StringCalculator_inputMultipleDelimitersLongerThanOneCharacter_returnsSum(string input, int expected) {
+            //Given
+            StringCalculator stringCalculator = new StringCalculator();
+
+            //When
+            int actual = stringCalculator.Add(input);
+            
+            //Then
+            Assert.Equal(expected, actual);
+        }
+        
+        [Theory]
+        [InlineData("//[*1*][%]\n1*1*2%3", 6)]
+        public void StringCalculator_inputMultipleDelimitersWhereNumberCanBePartOfDelimiter_returnsSum(string input, int expected) {
+            //Given
+            StringCalculator stringCalculator = new StringCalculator();
+
+            //When
+            int actual = stringCalculator.Add(input);
+            
+            //Then
+            Assert.Equal(expected, actual);
+        }  
+        
+       
+        // [Theory]
+        // [InlineData("//[**1][%]\n1*1*2%3", "[**1]")]
+        // [InlineData("//[1**][%]\n1*1*2%3", "[1**]")]
+        // public void StringCalculator_inputMultipleDelimitersWhereNumberCannotBeEdgeOfDelimiter_returnsSum(string 
+        // input, string output) {
+        //     
+        //     //Given
+        //     StringCalculator stringCalculator = new StringCalculator();
+        //     Exception ex = Assert.Throws<NumbersCannotBeEdgeOfDelimiterException>(() => stringCalculator.Add(input));
+        //     
+        //     //When
+        //     Assert.Equal($"Number can't be edge of delimiter: {output}", ex.Message);
+        // }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace string_calculator_kata {
@@ -68,10 +69,17 @@ namespace string_calculator_kata {
                 if(Regex.IsMatch(input,  CustomDelimiterMultipleCharactersRegex))
                 {
                     int indexOfNumbers = 1;
-                    Match delimiter = Regex.Match(input,  CustomDelimiterMultipleCharactersRegex); 
+                    MatchCollection delimitersMatchCollection = Regex.Matches(input,  CustomDelimiterMultipleCharactersRegex);
+                    string[] delimitersArray = delimitersMatchCollection.Select(m => m.Value).ToArray();
                     string[] splitInput = input.Split(',', '\n');
-                    string[] stringNumbers = splitInput[indexOfNumbers].Split(delimiter.ToString(), StringSplitOptions.None);
-                    return stringNumbers;
+                    
+                    string[] stringNumbersArray;
+                    
+                    stringNumbersArray = splitInput[indexOfNumbers].Split(delimitersArray, StringSplitOptions
+                        .None);
+                    
+                    return stringNumbersArray;
+                    
                 } else
                 {
                     int indexOfDelimiter = 2;
