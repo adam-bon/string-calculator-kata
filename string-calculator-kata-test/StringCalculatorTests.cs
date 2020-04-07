@@ -158,7 +158,7 @@ namespace string_calculator_kata
             //When
             int actual = stringCalculator.Add(input);
             
-            //Then
+            //Then  
             Assert.Equal(expected, actual);
         }  
         

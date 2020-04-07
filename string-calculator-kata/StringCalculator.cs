@@ -78,7 +78,7 @@ namespace string_calculator_kata {
                     stringNumbersArray = splitInput[indexOfNumbers].Split(delimitersArray, StringSplitOptions
                         .None);
                     
-                    return stringNumbersArray;
+                    return stringNumbersArray;  
                     
                 } else
                 {
