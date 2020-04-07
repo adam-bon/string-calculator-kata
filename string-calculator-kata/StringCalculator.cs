@@ -7,6 +7,13 @@ namespace string_calculator_kata {
         public StringCalculator() {
         }
 
+       private const string EmptyStringRegex = @"^$";
+       private const string NegativeNumbersRegex = @"-\d+";
+       private const string CustomDelimiterFlagRegex = @"^//";
+       private const string CommaDelimiterRegex = @",";
+       private const string SpaceDelimiterRegex = @"\n";
+       private const string CustomDelimiterMultipleCharactersRegex = @"(?<=\[)(.*?)(?=\])";
+
         public int Add(String input)
         {
             
@@ -15,18 +22,19 @@ namespace string_calculator_kata {
 
             switch (input)
             {
-                case var someInput when new Regex(@"^$").IsMatch(someInput):
+                case var someInput when new Regex(EmptyStringRegex).IsMatch(someInput):
                     return 0;
 
-                case var someInput when new Regex(@"-\d+").IsMatch(someInput):
+                case var someInput when new Regex(NegativeNumbersRegex).IsMatch(someInput):
                     MatchCollection negativeNumbers = Regex.Matches(input, @"-\d+");
                     throw new NegativeNumbersNotAllowedException($"Negatives not allowed: {String.Join(", ", negativeNumbers)}");
 
-                case var someInput when new Regex(@"^//").IsMatch(someInput):
+                case var someInput when new Regex(CustomDelimiterFlagRegex).IsMatch(someInput):
                     stringNumbers = SplitStringWithCustomDelimiter(input);
                     return SumOfStringNumbers(stringNumbers);
 
-                case var someInput when new Regex(@",").IsMatch(someInput) || new Regex(@"\n").IsMatch(someInput):
+                case var someInput when new Regex(CommaDelimiterRegex).IsMatch(someInput) || new Regex(SpaceDelimiterRegex).IsMatch
+                (someInput):
                     stringNumbers = input.Split(',', '\n');
                     return SumOfStringNumbers(stringNumbers);
                 
@@ -57,15 +65,17 @@ namespace string_calculator_kata {
         private string[] SplitStringWithCustomDelimiter(string input){
                 //char delimiter = input[2];
                 //[***]
-                if(Regex.IsMatch(input,  @"(?<=\[)(.*?)(?=\])"))
+                if(Regex.IsMatch(input,  CustomDelimiterMultipleCharactersRegex))
                 {
-                    Match delimiter = Regex.Match(input,  @"(?<=\[)(.*?)(?=\])"); 
-                    string[] splitString = input.Split(',', '\n');
-                    string[] splitString2 = splitString[1].Split(delimiter.ToString(), StringSplitOptions.None);
-                    return splitString2;
+                    int indexOfNumbers = 1;
+                    Match delimiter = Regex.Match(input,  CustomDelimiterMultipleCharactersRegex); 
+                    string[] splitInput = input.Split(',', '\n');
+                    string[] stringNumbers = splitInput[indexOfNumbers].Split(delimiter.ToString(), StringSplitOptions.None);
+                    return stringNumbers;
                 } else
                 {
-                    char delimiter = input[2];
+                    int indexOfDelimiter = 2;
+                    char delimiter = input[indexOfDelimiter];
                     return input.Split(delimiter, ',', '\n');
                 }
         }     
