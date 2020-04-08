@@ -151,7 +151,7 @@ namespace string_calculator_kata
         
         [Theory]
         [InlineData("//[*1*][%]\n1*1*2%3", 6)]
-        public void StringCalculator_inputMultipleDelimitersWhereNumberCanBePartOfDelimiter_returnsSum(string input, int expected) {
+        public void StringCalculator_InputMultipleDelimitersWhereNumberCanBePartOfDelimiter_returnsSum(string input, int expected) {
             //Given
             StringCalculator stringCalculator = new StringCalculator();
 
@@ -161,20 +161,24 @@ namespace string_calculator_kata
             //Then  
             Assert.Equal(expected, actual);
         }  
-        
-       
-        // [Theory]
-        // [InlineData("//[**1][%]\n1*1*2%3", "[**1]")]
-        // [InlineData("//[1**][%]\n1*1*2%3", "[1**]")]
-        // public void StringCalculator_inputMultipleDelimitersWhereNumberCannotBeEdgeOfDelimiter_returnsSum(string 
-        // input, string output) {
-        //     
-        //     //Given
-        //     StringCalculator stringCalculator = new StringCalculator();
-        //     Exception ex = Assert.Throws<NumbersCannotBeEdgeOfDelimiterException>(() => stringCalculator.Add(input));
-        //     
-        //     //When
-        //     Assert.Equal($"Number can't be edge of delimiter: {output}", ex.Message);
-        // }
+
+        [Theory]
+        [InlineData("//[**1][%]\n1*1*2%3", "[**1]")]
+        [InlineData("//[1**][%]\n1*1*2%3", "[1**]")]
+        [InlineData("//[3*****][%]\n1*1*2%3", "[3*****]")]
+        [InlineData("//[****6][%]\n1*1*2%3", "[****6]")]
+        [InlineData("//[*3***6][%]\n1*1*2%3", "[*3***6]")]
+        [InlineData("//[3**5*][%]\n1*1*2%3", "[3**5*]")]
+
+        public void StringCalculator_InputCustomDelimiterWithNumberOnEdgeOfDelimiter_ThrowsNumbersCannotBeEdgeOfDelimiterException(string 
+        input, string output) {
+            
+            //Given
+            StringCalculator stringCalculator = new StringCalculator();
+            Exception ex = Assert.Throws<NumbersCannotBeEdgeOfDelimiterException>(() => stringCalculator.Add(input));
+            
+            //When
+            Assert.Equal($"Number can't be on edge of delimiter: {output}", ex.Message);
+        }
     }
 }

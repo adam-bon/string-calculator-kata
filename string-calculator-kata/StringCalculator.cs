@@ -14,28 +14,27 @@ namespace string_calculator_kata {
        private const string CommaDelimiterRegex = @",";
        private const string SpaceDelimiterRegex = @"\n";
        private const string CustomDelimiterMultipleCharactersRegex = @"(?<=\[)(.*?)(?=\])";
-
+       private const string CustomDelimiterNumberOnEdge = @"(\[\d.*?\])|(\[.*\d\])"; 
+       
         public int Add(String input)
-        {
-            
-            
+        {   
             string[] stringNumbers;
 
             switch (input)
             {
-                case var someInput when new Regex(EmptyStringRegex).IsMatch(someInput):
+                case var matchedInput when new Regex(EmptyStringRegex).IsMatch(matchedInput):
                     return 0;
 
-                case var someInput when new Regex(NegativeNumbersRegex).IsMatch(someInput):
+                case var matchedInput when new Regex(NegativeNumbersRegex).IsMatch(matchedInput):
                     MatchCollection negativeNumbers = Regex.Matches(input, @"-\d+");
                     throw new NegativeNumbersNotAllowedException($"Negatives not allowed: {String.Join(", ", negativeNumbers)}");
 
-                case var someInput when new Regex(CustomDelimiterFlagRegex).IsMatch(someInput):
+                case var matchedInput when new Regex(CustomDelimiterFlagRegex).IsMatch(matchedInput):
                     stringNumbers = SplitStringWithCustomDelimiter(input);
                     return SumOfStringNumbers(stringNumbers);
 
-                case var someInput when new Regex(CommaDelimiterRegex).IsMatch(someInput) || new Regex(SpaceDelimiterRegex).IsMatch
-                (someInput):
+                case var matchedInput when new Regex(CommaDelimiterRegex).IsMatch(matchedInput) || new Regex(SpaceDelimiterRegex).IsMatch
+                (matchedInput):
                     stringNumbers = input.Split(',', '\n');
                     return SumOfStringNumbers(stringNumbers);
                 
@@ -64,8 +63,13 @@ namespace string_calculator_kata {
         }
 
         private string[] SplitStringWithCustomDelimiter(string input){
-                //char delimiter = input[2];
-                //[***]
+
+                if(Regex.IsMatch(input,  CustomDelimiterNumberOnEdge))
+                {
+                    Match delimiterWithNumberOnEdge = Regex.Match(input, CustomDelimiterNumberOnEdge);
+                    throw new NumbersCannotBeEdgeOfDelimiterException($"Number can't be on edge of delimiter: {delimiterWithNumberOnEdge.ToString()}");
+                }
+
                 if(Regex.IsMatch(input,  CustomDelimiterMultipleCharactersRegex))
                 {
                     int indexOfNumbers = 1;
